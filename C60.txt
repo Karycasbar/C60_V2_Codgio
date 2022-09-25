@@ -1,0 +1,67 @@
+   constructor() {
+    super();
+    this.state = {
+      teamsRank: [],
+    };
+  }
+--------------------------------------------------
+    var teamRef = db.ref('teams/');
+    teamRef.on("value", (data)=>{      
+    
+});
+------------------------------------------------------.
+    componentDidMount() {
+    this.showTeamRanks();
+  }
+-------------------------------------------------------
+      for (var team in teamList) {
+        if (teamList[team]['isButtonPressed'] === true) {
+          teamList[team]['teamName'] = team;
+          teams.push(teamList[team]);
+        }
+      }
+-------------------------------------------------------------
+        teams.sort(function (team1, team2) {
+        return team1.timestamp - team2.timestamp;
+      });
+----------------------------------------------------------------
+      <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          {this.state.teamsRank.map((team) => (
+            <View
+              style={{
+                width: 140,
+                height: 55,
+                borderWidth: 2,
+                margin: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: team.teamName,
+              }}>
+              <Text>{team.teamName.toUpperCase()}</Text>
+            </View>
+          ))}
+        </View>
+---------------------------------------------------------------------------
+  resetDb = () => {
+    var restDatabase = db.ref('teams/').set({
+      red: {
+        isButtonPressed: false,
+        timestamp: 0,
+      },
+      green: {
+        isButtonPressed: false,
+        timestamp: 0,
+      },
+      blue: {
+        isButtonPressed: false,
+        timestamp: 0,
+      },
+      yellow: {
+        isButtonPressed: false,
+        timestamp: 0,
+      },
+    });
+    this.setState({ teamsRank: [] });
+  };
+-------------------------------------------------------------------------
